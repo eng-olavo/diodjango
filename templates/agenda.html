@@ -1,24 +1,23 @@
 {% extends "model-page.html" %}
 {% block content %}
-    <h1>Agenda</h1>
-    <hr>
 
     <div>
         <table class="table">
             <thead>
                 <tr>
-                    <th>#</th>
-                    <th>Evento</th>
-                    <th>Data do Evento</th>
+                    <th scope="col">#</th>
+                    <th scope="col">Evento</th>
+                    <th scope="col">Data do Evento</th>
+                    <th scope="col">Usuario</th>
                 </tr>
             </thead>
             <tbody>
             {% for evento in eventos %}
                 <tr>
-                    <th>{{ evento.id }}</th>
+                    <th scope="row">{{ evento.id }}</th>
                     <th>{{ evento.titulo }}</th>
                     <td>{{ evento.get_data_evento }}</td>
-                    <!-- <td>{{ evento.User }}</td> -->
+                    <td>{{ evento.usuario }}</td>
                 </tr>
             {% endfor %}
             </tbody>
