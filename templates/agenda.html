@@ -1,14 +1,15 @@
 {% extends "model-page.html" %}
 {% block content %}
 
-    <div>
+    <div class="container">
         <h2>Agendamentos</h2>
         <a href="evento/">
             <button type="button">Novo evento</button>
         </a>
+        <hr>
         <br>
     </div>
-    <div>
+    <div class="container">
         <table class="table">
             <thead>
                 <tr>
@@ -16,6 +17,8 @@
                     <th scope="col">Evento</th>
                     <th scope="col">Data do Evento</th>
                     <th scope="col">Usuario</th>
+                    <th scope="col">Editar</th>
+                    <th scope="col">Excluir</th>
                 </tr>
             </thead>
             <tbody>
@@ -25,6 +28,8 @@
                     <th>{{ evento.titulo }}</th>
                     <td>{{ evento.get_data_evento }}</td>
                     <td>{{ evento.usuario }}</td>
+                    <td><a href="evento/?id={{ evento.id }}">Editar</a></td>
+                    <td><a href="evento/delete/{{ evento.id }}/">Excluir</a></td>
                 </tr>
             {% endfor %}
             </tbody>
